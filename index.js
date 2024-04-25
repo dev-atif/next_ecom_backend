@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 require("./Database/Connection");
 const router = require("./Routes");
@@ -15,6 +16,9 @@ app.use(express.json());
 //Cookies
 app.use(cookieParser());
 //Routers Api
+app.get("/", async (req, res) => {
+  res.sendFile("index.html", { root: path.join(__dirname, "public") });
+});
 
 app.use("/api", router);
 
