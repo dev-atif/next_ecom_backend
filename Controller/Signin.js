@@ -33,6 +33,8 @@ async function UserSignin(req, res) {
       tokenOption = {
         httponly: true,
         secure: true,
+        sameSite: 'none',
+        path:'/'
       };
       //Set token to cookies and send as a responce
       res.cookie("token", token,tokenOption).status(200).json({

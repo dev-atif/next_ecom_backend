@@ -24,6 +24,7 @@ async function userSignup(req, res) {
 
     const payload = {
       ...req.body,
+      role:"General",
       password: hashPassword,
     };
     //Check if user is already exists or not
